@@ -1,0 +1,17 @@
+@import '../../../library/color.scss';
+
+.button {
+	background-color: transparent;
+	height: 5rem;
+	width: 5rem;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $Primary;
+
+	img {
+		height: 1.5rem;
+		width: 5rem;
+	}
+}

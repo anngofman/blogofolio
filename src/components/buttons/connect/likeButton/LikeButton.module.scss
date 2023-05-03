@@ -1,0 +1,11 @@
+@import '../../../../library/color.scss';
+
+.button {
+  width: 50px;
+  height: 56px;
+  background-color: $Light;
+  &:hover{
+    background-color: $Primary2;
+    color: $White;
+  }
+}

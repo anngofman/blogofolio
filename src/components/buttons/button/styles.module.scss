@@ -1,0 +1,54 @@
+@import '../../../library/color.scss';
+
+.button {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px;
+    border-radius: 2px;
+    border: none;
+    width: 159px;
+    height: 56px;
+
+    &.primaryButton {
+        background-color: $Primary;
+        color: white;
+
+        &:hover {
+            background-color: $Primary2;
+        }
+
+        &:disabled {
+            color: $Gray;
+            background-color: $Light;
+        }
+    }
+
+    &.secondaryButton {
+        background-color: $Light;
+        color: $Secondary;
+
+        &:hover {
+            background-color: $Medium;
+        }
+
+        &.disabled {
+            color: $Gray;
+            background-color: $Light;
+        }
+    }
+
+    &.secondary2Button {
+        background-color: transparent;
+        color: $Error;
+
+        &:hover {
+            border: 1px solid $Medium;
+        }
+
+        &.disabled {
+            color: $Gray;
+            background-color: $Light;
+        }
+    }
+}

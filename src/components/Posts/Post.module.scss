@@ -1,0 +1,55 @@
+@import '../../library/fontSize.scss';
+
+.post{
+  
+    width: 740px;
+    height: 460px;
+
+    &_content {
+      width: 100%;
+      height: 100%;
+      font-size: $Level7;
+      font-weight: 400;
+      display: flex;
+
+      .text {
+        height: 85%;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        p {
+          margin-bottom: $Level8;
+          line-height: 24px;
+        }
+
+        .title {
+          font-size: $Level5;
+          font-weight: 700;
+          margin-bottom: $Level6;
+          line-height: 44px;
+        }
+
+        .description {
+          line-height: 28px;
+        }
+      }
+
+      img {
+        width: 40%;
+        height: 50%;
+      }
+    }
+
+    &_connect {
+      display: flex;
+      justify-content: space-between;
+
+      .likes {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+      }
+    }
+  
+}

@@ -1,0 +1,9 @@
+@import '../../../../library/color.scss';
+
+.tabsPanel{
+	height: 56px;
+	display: flex;
+	width: 100%;
+	border-bottom: 1px solid $Medium;
+	margin-bottom: 2em;
+}

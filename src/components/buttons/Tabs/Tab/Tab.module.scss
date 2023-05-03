@@ -1,0 +1,21 @@
+@import '../../../../library/color.scss';
+
+.tab {
+
+	input {
+		display: none;
+	}
+
+	height: 100%;
+	margin: 0 1em 1em 0;
+	padding: 1.25em;
+	font-weight: 600;
+
+	&:hover {
+		color: $Primary;
+	}
+
+	&:has(input:checked) {
+		border-bottom: 2px solid $Secondary ;
+	}
+}
