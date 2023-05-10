@@ -1,0 +1,13 @@
+@import '../../../library/color.scss';
+
+.button {
+	background-color: transparent;
+	height: 100%;
+	width: 5rem;
+	border: 1px solid $Primary2;
+
+	img {
+		height: 1.5rem;
+		width: 100%;
+	}
+}

@@ -1,0 +1,13 @@
+@import '../../library/fontSize.scss';
+@import '../../library/color.scss';
+.main{
+  padding:$Level1 230px ;
+  margin-top: 5em;
+  &.light {
+    background-color: $ExtraLight;;
+  }
+  &.dark {
+    background-color: $Secondary;
+    color: #fff;
+  }
+}

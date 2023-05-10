@@ -1,17 +1,22 @@
 import styles from './Bookmark.module.scss'
-import bookmark from '../../../../images/button/connect/Bookmark.svg'
+import BookmarkIcon from '../../../Icons/buttons/Bookmark'
+import { useCallback, useState } from 'react'
 
 
-type Props = {
-  onClick: () => void
-  onChange: boolean
-}
 
-const Bookmark = (props: Props) => {
+
+const Bookmark = () => {
+
+  const [bookmark, setBookmark] = useState('none')
+
+  const BookmarkOnClick = useCallback(() => {
+    
+    setBookmark(bookmark => !bookmark ? bookmark = '#313037' : bookmark = 'none')
+  }, [])
 
   return (
-    <button onClick={props.onClick} className={styles.button}>
-      {props.onChange ? <img src={bookmark} alt={'open'} /> : <img src={bookmark} alt={'open'} />}
+    <button onClick={BookmarkOnClick} className={styles.button}>
+      <BookmarkIcon color={bookmark} />
     </button>
   )
 }

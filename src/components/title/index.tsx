@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from './title.module.scss'
 type Props = {
   className?:string,
   text:string
@@ -7,9 +7,7 @@ type Props = {
 
 const Title = (props:Props) => {
   return (
-    <>
-    <p className={props.className}>{props.text}</p>
-    </>
+    <h2 className={`${props.className} ${styles.title}`}>{props.text}</h2>
   )
 }
 export default Title

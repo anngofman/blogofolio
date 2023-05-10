@@ -5,16 +5,17 @@ import dislikeImage from '../../../../images/button/connect/dislike.svg'
 
 type Props = {
   onClick: () => void
-  like: string
+  dislike: number
 }
 
 const DisLikeButton = (props: Props) => {
 
+  
   return (
     <button onClick={props.onClick}
       className={styles.button}>
       <img src={dislikeImage} alt={'open'} />
-      <span>{props.like}</span>
+      <span>{props.dislike}</span>
     </button>
   )
 }

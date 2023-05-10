@@ -5,7 +5,7 @@ import likeImage from '../../../../images/button/connect/like.svg'
 
 type Props = {
   onClick: () => void
-  like: string
+  like: number
 }
 
 const LikeButton = (props: Props) => {

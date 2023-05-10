@@ -1,0 +1,25 @@
+@import '../../library/color.scss';
+
+.wrapper {
+  height:5em;
+  width: 14em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $Primary;
+  color: white;
+
+  .authorized_icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $Primary2;
+    border-radius: 2px;
+  } 
+  &.notAuthorized {
+    display: none;
+  }
+}
+

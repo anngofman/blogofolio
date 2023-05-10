@@ -1,0 +1,30 @@
+@import '../../library/color.scss';
+@import '../../library/fontSize.scss';
+
+.footer {
+  width: 100%;
+    height: 4em;
+    padding: 0 400px;
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $Medium ;
+    height: 100%;
+    
+
+    p {
+      height: 100%;
+    }
+
+   
+  }
+  &.light {
+    background-color: #E5E5E5;
+  }
+
+  &.dark {
+    background-color: $Secondary;
+    color: #fff;
+  }
+}

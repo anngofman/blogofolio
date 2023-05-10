@@ -1,0 +1,46 @@
+@import '../../library/color.scss';
+@import '../../library/fontSize.scss';
+
+.wrapper {
+  margin: 0 auto;
+
+  .form {
+    max-width: 630px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $Level4;
+    gap: 10px;
+    border: 1px solid $Medium;
+    font-size: 16px;
+
+    label {
+      font-weight: 600;
+      margin-top: $Level4;
+      margin-bottom: $Level8;
+    }
+
+    input {
+      height: 55px;
+      width: 100%;
+      padding: 0 $Level4;
+    }
+
+    &>p {
+      margin-bottom: $Level4;
+    }
+
+    .singUp {
+      color: $Gray;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      button {
+        background-color: transparent;
+        color: $Primary;
+      }
+    }
+  }
+}

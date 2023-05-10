@@ -6,6 +6,7 @@ type Props = {
     text: string
     type: 'primary' | 'secondary' | 'secondary2' 
     disabled?: boolean
+    className?: string
 }
 
 const Button = (props: Props) => {
@@ -13,6 +14,7 @@ const Button = (props: Props) => {
         ${styles.button} 
         ${styles[`${props.type}Button`]} 
         ${props.disabled ? styles.disabled : ''}
+        ${props.className}
     `
 
     return (

@@ -3,8 +3,11 @@
 .button {
   width: 50px;
   height: 56px;
-  background-color: $Light;
+  background-color: transparent;
   margin-left: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
   &:hover{
     background-color: $Error;

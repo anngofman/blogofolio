@@ -1,0 +1,41 @@
+@import '../../library/color.scss';
+
+.menu {
+  width: 14em;
+  background-color: $White;
+  height: calc(100% - 5em);
+  position: fixed;
+  top: 5em;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .5s;
+
+  &.open   {
+    left: 0%;
+   }
+  &Top {
+    width: 100%;
+  }
+
+
+  &Bottom {
+    .themeBtns {
+      width: 100%;
+      margin: 0;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    input {
+      width: 100%;
+      margin: 0;
+      height: 80px;
+    }
+  }
+
+
+}
