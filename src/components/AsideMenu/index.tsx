@@ -4,6 +4,7 @@ import Button from '../buttons/Button'
 import DarkThemeBtn from '../buttons/Themes'
 import { useContext } from 'react'
 import { MenuContext } from '../../helpers/MenuContext'
+import { Link } from 'react-router-dom'
 
 type Props = {
   className?: string
@@ -21,9 +22,9 @@ const AsideMenu = (props: Props) => {
       <div className={styles.menuTop}>
         <AboutUser text='Anna Hofman' />
         <ul>
-          <li>
+          <Link to='/'>
             Home
-          </li>
+          </Link>
           <li>
             Add Post
           </li>

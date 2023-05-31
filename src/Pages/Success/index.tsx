@@ -1,8 +1,8 @@
-import Title from '../Title'
-import Button from '../buttons/Button'
+import Title from '../../components/Title'
+import Button from '../../components/buttons/Button'
 import styles from './success.module.scss'
 
-export const Success = () => {
+export const SuccessPage = () => {
   return (
     <div className={styles.wrapper}>
       <p>Back to home</p>

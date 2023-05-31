@@ -21,10 +21,6 @@ export const Main = (props:Props) => {
           <PostsPage/>
           <PostsPageMain/>
           <PostsPageMain/>
-          {/* <Post view='head' />
-          <Post view='main' />
-          <Post view='sideBar' />
-          <Post view='head' /> */}
         </div>
         navigator
       </div>

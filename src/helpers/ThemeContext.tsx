@@ -1,7 +1,7 @@
 import { ReactNode, createContext } from "react"
 
 type ThemeContextType = 'light' | 'dark'
-export const defaultStateTheme = 'dark'
+export const defaultStateTheme = 'light'
 export const ThemeContext = createContext<ThemeContextType>(defaultStateTheme)
 
 type Props = {

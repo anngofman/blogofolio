@@ -1,14 +1,14 @@
-import Title from '../Title'
-import Button from '../buttons/Button'
+import Title from '../../components/Title'
+import Button from '../../components/buttons/Button'
 import styles from './signUp.module.scss'
 
-export const SignUp = () => {
+export const SignUpPage = () => {
   return (
     <div className={styles.wrapper}>
       <p>Back to home</p>
       <Title text={'Sign Up'} />
       <form action="" className={styles.form}>
-      <label htmlFor="">
+        <label htmlFor="">
           Name
         </label>
         <input type="text" placeholder='Your name' />
@@ -21,7 +21,7 @@ export const SignUp = () => {
         </label>
         <input type="text" placeholder='Your password' />
         <label htmlFor="">
-        Confirm password
+          Confirm password
         </label>
         <input type="text" placeholder='Confirm password' />
         <Button className={styles.btnSingUp} type={'primary'} text={'Sign Up'} />

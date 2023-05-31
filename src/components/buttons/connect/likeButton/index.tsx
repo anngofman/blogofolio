@@ -14,7 +14,7 @@ const LikeButton = (props: Props) => {
     <button onClick={props.onClick}
       className={styles.button}>
       <img src={likeImage} alt={'open'} />
-      <span>{props.like}</span>
+      <span>{props.like+1}</span>
     </button>
   )
 }

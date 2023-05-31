@@ -5,6 +5,7 @@ type Props = {
   placeholder?: string
   isError?: boolean
   isVisible?: boolean
+  className?: string
 }
 
 const InputSearch = (props: Props) => {
@@ -13,7 +14,7 @@ const InputSearch = (props: Props) => {
     <input
       type="text"
       hidden={isVisible}
-      className={`${styles.input} ${isError ? styles.error : 'null'}`}
+      className={`${styles.input} ${isError ? styles.error : 'null'} ${props.className}`}
       placeholder={placeholder}
       value={text}
     />

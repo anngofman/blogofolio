@@ -3,7 +3,12 @@
 
 .wrapper {
   margin: 0 auto;
-
+ 
+  max-width: 1120px;
+  width: 100%;
+.title{
+  justify-self: flex-start;
+}
   .form {
     max-width: 630px;
     margin: 0 auto;
@@ -30,11 +35,8 @@
     &>p {
       margin-bottom: $Level4;
     }
-    .btnSingUp{
-      margin-top: $Level4;
-    }
 
-    .singIn {
+    .singUp {
       color: $Gray;
       display: flex;
       justify-content: center;

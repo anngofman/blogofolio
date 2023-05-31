@@ -1,4 +1,5 @@
 import LoginButton from '../buttons/Login'
+import { useAuthContext } from '../hoc/AuthProvidsr'
 import styles from './aboutUser.module.scss'
 type Props = {
   className?: string
@@ -7,11 +8,12 @@ type Props = {
 
 const AboutUser = (props: Props) => {
   const userName: string[] = props.text.split(' ')
-  const isAuthorized: boolean = false
+  // const isAuthorized: boolean = false
+  const {isAuthorized, login, logout} = useAuthContext()
   return (
     <>
-      <LoginButton className={(isAuthorized) ? 'notAuthorized' : ''} />
-      <div className={`
+      <LoginButton onClick={login} className={(isAuthorized) ? 'notAuthorized' : ''} />
+      <div onClick={logout} className={`
         ${styles.wrapper}
         ${styles[`${(!isAuthorized) ? 'notAuthorized' : ''}`]}
                       `}>

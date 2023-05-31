@@ -1,23 +1,27 @@
-import { useContext } from 'react';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { ThemeContext } from './helpers/ThemeContext';
-import AsideMenu from './components/AsideMenu';
-import { SignUp } from './components/SignUp';
-import { SignIn } from './components/SignIn';
+import HomePage from './Pages/Home';
+import NotFoundPage from './Pages/NotFoundPage';
+import { SignInPage } from './Pages/SignIn';
+import { SignUpPage } from './Pages/SignUp';
+import { SuccessPage } from './Pages/Success';
+import Layout from './components/Layout';
+import { AuthProvider } from './components/hoc/AuthProvidsr';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const theme = useContext(ThemeContext)
   return (
-    <div className={'App'}>
-      <Header />
-      <AsideMenu />
-      <Main className={theme} />
-<SignUp />
-<SignIn />
-      <Footer className={theme} />
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<Layout/>}>
+            <Route index element={<HomePage />} />
+            <Route path='signIn' element={<SignInPage />} />
+            <Route path='signUp' element={<SignUpPage />} />
+            <Route path='success' element={<SuccessPage />} />
+          </Route>
+          <Route path='*' element={<NotFoundPage/>} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

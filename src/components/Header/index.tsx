@@ -25,7 +25,7 @@ export const Header = () => {
     <div className={styles.header}>
       <BurgerButton onClick={BurgerOnClick} isActive={burgerState} />
       <div className={styles.navigation}>
-        <InputSearch isVisible={inputState} placeholder='Search...' />
+        <InputSearch className={styles.search} isVisible={inputState} placeholder='Search...' />
         <SearchButton onClick={searchButtonClick} />
         <AboutUser text={'Anna Hofman'} />
       </div>
