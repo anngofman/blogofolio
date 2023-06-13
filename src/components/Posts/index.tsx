@@ -6,23 +6,23 @@ import Bookmark from '../buttons/connect/BookmarkButton'
 import MenuMoreButton from '../buttons/connect/MenuMoreButton'
 
 type Props = {
-  // id: number
-  // image: string
-  // text: string
-  // date: string
-  // title: string
-  // likes: number
-  // dislikes: number
-className?:string
-  view: 'head' | 'main' | 'sideBar'
+  id: string
+  title: string
+  text: string
+  image?: string
+  likes: number
+  dislikes: number
+  isPopular: false
+  view?: 'head' | 'main' | 'sideBar'
+  className?: string
 }
 
 export const Post = (props: Props) => {
 
   let date = new Date()
 
-  const [like, setLike] = useState(0)
-  const [dislikes, setDislikes] = useState(0)
+  const [like, setLike] = useState(props.likes)
+  const [dislikes, setDislikes] = useState(props.dislikes)
 
 
   const likeBtnOnClick = () => {
@@ -35,7 +35,7 @@ export const Post = (props: Props) => {
     setLike((like) => like === 0 ? like = 0 : like -= 1)
   }
 
-  const url = 'https://on-desktop.com/wps/Animals___Cats_Red_Cat_with_open_mouth_044663_.jpg'
+  // const url = 'https://on-desktop.com/wps/Animals___Cats_Red_Cat_with_open_mouth_044663_.jpg'
 
   const wrapClass = `${styles.post} ${(props.view === 'head') ? styles.head : ((props.view === 'main') ? styles.main : styles.sideBar)}`
   return (
@@ -44,14 +44,14 @@ export const Post = (props: Props) => {
         <div className={styles.text}>
           <p>{date.toDateString()}</p>
           <div className={styles.title}>
-            Astronauts prep for new solar arrays on nearly seven-hour spacewalk
+            {props.title}
           </div>
           <div className={styles.description}>
-            Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.
+            {props.text}
           </div>
         </div>
         <div className={styles.postImg}>
-          <img src={url} alt={'kot'}>
+          <img src={props.image} alt={'img'}>
           </img>
         </div>
       </div>

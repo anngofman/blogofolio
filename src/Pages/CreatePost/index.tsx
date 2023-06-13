@@ -6,7 +6,7 @@ const CreatePost = () => {
   
   const onClick = useCallback(() => {
     alert('Пост создан')
-    navigate('/posts', {replace:true})
+    navigate('/', {replace:true})
   }, [navigate])
 
   return (

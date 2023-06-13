@@ -1,3 +1,4 @@
+import CreatePost from './Pages/CreatePost';
 import HomePage from './Pages/Home';
 import NotFoundPage from './Pages/NotFoundPage';
 import { SignInPage } from './Pages/SignIn';
@@ -17,6 +18,7 @@ function App() {
             <Route path='signIn' element={<SignInPage />} />
             <Route path='signUp' element={<SignUpPage />} />
             <Route path='success' element={<SuccessPage />} />
+            <Route path='createPost' element={<CreatePost />} />
           </Route>
           <Route path='*' element={<NotFoundPage/>} />
         </Routes>

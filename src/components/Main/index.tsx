@@ -1,32 +1,23 @@
-// import { Post } from '../Posts'
 import TabsPanel from '../buttons/Tabs/TabPanel'
+import PostList from '../Posts/PostList'
 import Title from '../Title'
 import styles from './main.module.scss'
-import PostsPage from '../Posts/PostsPageHead'
-import PostsPageMain from '../Posts/PostsPageMain'
-// import { SignIn } from '../SignIn'
-// import { Success } from '../Success'
-// import { SignUp } from '../SignUp'
-type Props={
-  className?:string 
+
+type Props = {
+  className?: string
 }
 
-export const Main = (props:Props) => {
+export const Main = (props: Props) => {
   return (
     <div className={`${styles.main} ${styles[`${props.className}`]}`}>
       <div className={styles.blog}>
         <Title text='Blog' />
         <TabsPanel tabsList={['All', 'My favorites', 'Popular']} name='tab' />
         <div className='cards'>
-          <PostsPage/>
-          <PostsPageMain/>
-          <PostsPageMain/>
+          <PostList />
         </div>
         navigator
       </div>
-      {/* <SignIn/> */}
-      {/* <Success/> */}
-      {/* <SignUp/> */}
     </div>
   )
 }

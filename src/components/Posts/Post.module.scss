@@ -19,6 +19,8 @@
       width: 60%;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       p {
         margin-bottom: $Level8;
@@ -80,10 +82,11 @@
       &>* {
         width: 100%;
       }
-      .postImg{
+
+      .postImg {
         height: 77%;
 
-        img{
+        img {
           height: 100%;
         }
       }

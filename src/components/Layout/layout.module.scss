@@ -1,15 +1,29 @@
-.page{
+@import '../../library/fontSize.scss';
+@import '../../library/color.scss';
+
+.page {
   display: flex;
   flex-direction: column;
-min-height: 100vh;
-  .outlet{
-display: flex;
-flex-grow: 1;
-justify-content: center;
-margin-top: 5em;
+  min-height: 100vh;
 
+  .outlet {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 5em;
+
+    &.light {
+      background-color: $ExtraLight;
+      ;
+    }
+  
+    &.dark {
+      background-color: $Secondary;
+      color: #fff;
+    }
 
   }
+ 
   .footer {
     display: flex;
   }
