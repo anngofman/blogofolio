@@ -1,19 +1,19 @@
 
-.postList{
-	display: flex;
-	.mainSide{
-		flex:1 1 736px;
+// .postList{
+// 	display: flex;
+// 	.mainSide{
+// 		flex:1 1 736px;
 		
-		.mainPosts{
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: max-content;
-			grid-auto-rows: max-content ;
-			gap:2em;
-		}
+// 		.mainPosts{
+// 			display: grid;
+// 			grid-template-columns: 1fr 1fr;
+// 			grid-template-rows: max-content;
+// 			grid-auto-rows: max-content ;
+// 			gap:2em;
+// 		}
 
-	}
-	.previewSide{
-		flex:0 0 1280px - 736px;
-	}
-}
+// 	}
+// 	.previewSide{
+// 		flex:0 0 1280px - 736px;
+// 	}
+// }

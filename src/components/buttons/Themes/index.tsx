@@ -4,16 +4,16 @@ import light from '../../Icons/buttons/Theme/themeLight.svg'
 
 type Props = {
   className?: string
-  onCliickThemeDark?: () => void
+  onCliickTheme?: () => void
   theme: 'light' | 'dark'
 }
-const DarkThemeBtn = (props: Props) => {
+const ThemeBtn = (props: Props) => {
 
   return (
-    <button className={styles.button} onClick={props.onCliickThemeDark}>
-      {(props.theme === 'dark') ? <img src={dark} alt="darkTheme" /> : <img src={light} alt="lightTheme" />}
+    <button className={styles.button} onClick={props.onCliickTheme}>
+      {(props.theme === 'dark') ? <img src={dark} alt="Theme" /> : <img src={light} alt="lightTheme" />}
     </button>
   )
 }
 
-export default DarkThemeBtn
+export default ThemeBtn

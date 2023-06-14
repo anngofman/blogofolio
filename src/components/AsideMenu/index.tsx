@@ -1,20 +1,20 @@
 import AboutUser from '../AboutUser'
 import styles from './asideMenu.module.scss'
 import Button from '../buttons/Button'
-import DarkThemeBtn from '../buttons/Themes'
 import { useContext } from 'react'
 import { MenuContext } from '../../helpers/MenuContext'
 import { NavLink } from 'react-router-dom'
+import ThemeBtn from '../buttons/Themes'
+import { ThemeContext } from '../../helpers/ThemeContext'
 
 type Props = {
   className?: string
 }
 
 const AsideMenu = (props: Props) => {
-
   const { isOpen } = useContext(MenuContext)
+  const { setTheme } = useContext(ThemeContext)
   return (
-    // <div className={`${styles.menu} ${styles.open}`}></div>
     <div className={`
     ${styles.menu} 
     ${isOpen ? styles.open : ''}  
@@ -32,8 +32,12 @@ const AsideMenu = (props: Props) => {
       </div>
       <div className={styles.menuBottom}>
         <div className={styles.themeBtns}>
-          <DarkThemeBtn theme='light' />
-          <DarkThemeBtn theme='dark' />
+          <ThemeBtn theme='light' onCliickTheme={() => setTheme({
+            theme: 'light'
+          })} />
+          <ThemeBtn theme='dark' onCliickTheme={() => setTheme({
+            theme: 'dark'
+          })} />
         </div>
         <Button type='secondary' text='Log Out' />
       </div>

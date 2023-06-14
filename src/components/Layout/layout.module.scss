@@ -6,24 +6,29 @@
   flex-direction: column;
   min-height: 100vh;
 
+  .wrapp {
+    &.light {
+      background-color: $ExtraLight;
+      ;
+    }
+
+    &.dark {
+      background-color: $Secondary;
+      color: #fff;
+
+      button {
+        color: #fff;
+      }
+    }
+  }
+
   .outlet {
     display: flex;
     flex-grow: 1;
     justify-content: center;
     margin-top: 5em;
-
-    &.light {
-      background-color: $ExtraLight;
-      ;
-    }
-  
-    &.dark {
-      background-color: $Secondary;
-      color: #fff;
-    }
-
   }
- 
+
   .footer {
     display: flex;
   }
