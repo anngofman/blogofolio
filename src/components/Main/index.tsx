@@ -13,9 +13,7 @@ export const Main = (props: Props) => {
       <div className={styles.blog}>
         <Title text='Blog' />
         <TabsPanel tabsList={['All', 'My favorites', 'Popular']} name='tab' />
-        <div className='cards'>
-          <PostList />
-        </div>
+        <PostList />
         navigator
       </div>
     </div>

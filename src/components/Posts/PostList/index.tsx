@@ -24,7 +24,7 @@ const PostList = () => {
     if (!page) limit = 10
     else limit = 12
 
-    getPosts(page * 12 , limit).then((posts: MyResponseType<PostType>) => {
+    getPosts(page * 12, limit).then((posts: MyResponseType<PostType>) => {
       setPostList(posts.items)
     })
   }, [page])
