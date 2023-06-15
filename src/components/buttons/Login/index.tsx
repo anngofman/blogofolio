@@ -1,5 +1,5 @@
 import styles from './loginButton.module.scss'
-import user from '../../Icons/buttons/User/user.svg'
+import user from '../../../images/user.svg'
 
 type Props = {
   onClick?: () => void

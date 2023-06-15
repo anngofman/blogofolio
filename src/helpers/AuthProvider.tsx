@@ -12,7 +12,7 @@ type AuthProviderProps = {
   children: ReactNode
 }
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = (props: AuthProviderProps) => {
 
   const [auth, setAuth] = useState(true)
 
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider value={providerValue}>
-      {children}
+      {props.children}
     </AuthContext.Provider>
   )
 }

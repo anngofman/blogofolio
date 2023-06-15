@@ -1,5 +1,5 @@
+import MenuMore from '../../../../Icon/MenuMore'
 import styles from './MenuMoreButton.module.scss'
-import menuMoreImage from '../../../../images/button/connect/MenuMore.svg'
 
 
 type Props = {
@@ -11,7 +11,7 @@ const MenuMoreButton = (props: Props) => {
 
   return (
     <button onClick={props.onClick} className={styles.button}>
-      <img src={menuMoreImage} alt={'open'} /> 
+      <MenuMore color='black' />
     </button>
   )
 }

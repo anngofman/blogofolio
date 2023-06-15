@@ -16,7 +16,7 @@ type PostType = {
 
 const PostList = () => {
   let [postsList, setPostList] = useState([] as PostType[])
-  const [page] = useState(1)
+  const [page] = useState(0)
   console.log(postsList)
 
   useEffect(() => {

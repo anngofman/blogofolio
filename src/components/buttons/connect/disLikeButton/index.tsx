@@ -1,20 +1,16 @@
-import React from 'react'
 import styles from './DisLikeButton.module.scss'
-import dislikeImage from '../../../../images/button/connect/dislike.svg'
-
+import DisLikeIcon from '../../../../Icon/DisLike'
 
 type Props = {
   onClick: () => void
   dislike: number
 }
 
-const DisLikeButton = (props: Props) => {
-
-  
+const DisLikeButton = (props: Props) => {  
   return (
     <button onClick={props.onClick}
       className={styles.button}>
-      <img src={dislikeImage} alt={'open'} />
+      <DisLikeIcon color='black'/>
       <span>{props.dislike}</span>
     </button>
   )

@@ -1,5 +1,5 @@
 import styles from './Bookmark.module.scss'
-import BookmarkIcon from '../../../Icons/buttons/Bookmark'
+import BookmarkIcon from '../../../../Icon/Bookmark'
 import { useCallback, useState } from 'react'
 
 
@@ -10,13 +10,15 @@ const Bookmark = () => {
   const [bookmark, setBookmark] = useState('none')
 
   const BookmarkOnClick = useCallback(() => {
-    
-    setBookmark(bookmark => !bookmark ? bookmark = '#313037' : bookmark = 'none')
+    setBookmark(bookmark => bookmark==='none' ? bookmark = 'black' : bookmark = 'none')
   }, [])
 
   return (
     <button onClick={BookmarkOnClick} className={styles.button}>
-      <BookmarkIcon color={bookmark} />
+      <BookmarkIcon color={{
+        fill: `${bookmark}`,
+        stroke: 'black'
+      }} />
     </button>
   )
 }

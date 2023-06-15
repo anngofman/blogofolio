@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './LikeButton.module.scss'
-import likeImage from '../../../../images/button/connect/like.svg'
+import LikeIcon from '../../../../Icon/Like'
 
 
 type Props = {
@@ -13,7 +13,7 @@ const LikeButton = (props: Props) => {
   return (
     <button onClick={props.onClick}
       className={styles.button}>
-      <img src={likeImage} alt={'open'} />
+        <LikeIcon color='black'/>
       <span>{props.like+1}</span>
     </button>
   )

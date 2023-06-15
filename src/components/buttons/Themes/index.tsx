@@ -1,6 +1,6 @@
 import styles from './theme.module.scss'
-import dark from '../../Icons/buttons/Theme/themeDark.svg'
-import light from '../../Icons/buttons/Theme/themeLight.svg'
+import dark from '../../../images/Dark.svg'
+import light from '../../../images/Icon-Sun.svg'
 
 type Props = {
   className?: string

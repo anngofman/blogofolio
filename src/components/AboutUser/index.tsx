@@ -1,5 +1,5 @@
 import LoginButton from '../buttons/Login'
-import { useAuthContext } from '../hoc/AuthProvidsr'
+import { useAuthContext } from '../../helpers/AuthProvider'
 import styles from './aboutUser.module.scss'
 type Props = {
   className?: string
@@ -8,8 +8,7 @@ type Props = {
 
 const AboutUser = (props: Props) => {
   const userName: string[] = props.text.split(' ')
-  // const isAuthorized: boolean = false
-  const {isAuthorized, login, logout} = useAuthContext()
+  const { isAuthorized, login, logout } = useAuthContext()
   return (
     <>
       <LoginButton onClick={login} className={(isAuthorized) ? 'notAuthorized' : ''} />
@@ -17,15 +16,13 @@ const AboutUser = (props: Props) => {
         ${styles.wrapper}
         ${styles[`${(!isAuthorized) ? 'notAuthorized' : ''}`]}
                       `}>
-          <div className={styles.authorized_icon}>
-            <p>{`${userName[0][0].toLocaleUpperCase()}  ${userName[1][0].toLocaleUpperCase()}`}</p>
-          </div>
-          <p>{`${userName[0]}  ${userName[1]}`}</p>
+        <div className={styles.authorized_icon}>
+          <p>{`${userName[0][0].toLocaleUpperCase()}  ${userName[1][0].toLocaleUpperCase()}`}</p>
+        </div>
+        <p>{`${userName[0]}  ${userName[1]}`}</p>
       </div>
     </>
-
   )
 }
 
 export default AboutUser
-//   

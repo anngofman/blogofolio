@@ -5,30 +5,37 @@ import SearchButton from '../buttons/Search'
 import InputSearch from '../Inputs/SearchInput'
 import AboutUser from '../AboutUser'
 import { MenuContext } from '../../helpers/MenuContext'
+import CloseButton from '../buttons/Close'
 
 export const Header = () => {
   const [burgerState, setBurgerState] = useState(true)
   const [inputState, setInputState] = useState(true)
-  const {isOpen, setIsOpen} = useContext(MenuContext)
+  const { isOpen, setIsOpen } = useContext(MenuContext)
 
   const BurgerOnClick = () => {
     setBurgerState(!isOpen ? burgerState : !burgerState)
     setIsOpen(!isOpen)
- }
-
-  const searchButtonClick = () => {
+  }
+const closeButtonOnClick = () => {
+  setInputState((inputState) => !inputState)
+}
+  const searchButtonOnClick = () => {
     setInputState((inputState) => !inputState)
   }
 
-
+  // ${styles[`${(!isAuthorized) ? 'notAuthorized' : ''}`]}
   return (
     <div className={styles.header}>
       <BurgerButton onClick={BurgerOnClick} isActive={burgerState} />
-      <div className={styles.navigation}>
+    
         <InputSearch className={styles.search} isVisible={inputState} placeholder='Search...' />
-        <SearchButton onClick={searchButtonClick} />
+        <CloseButton className={`
+        ${styles.btnClose}
+        ${styles[`${inputState ? 'close' : ''}`]}
+        `} onClick={closeButtonOnClick}/>
+        <SearchButton onClick={searchButtonOnClick} />
         <AboutUser text={'Anna Hofman'} />
       </div>
-    </div>
+   
   )
 }

@@ -1,16 +1,18 @@
 @import '../../../../library/color.scss';
 
 .button {
-  width: 50px;
+  width: 65px;
   height: 56px;
   background-color: transparent;
-  margin-left: 10px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
-  &:hover{
-    // background-color: $Error;
-    color: $White;
+  span {
+    margin-left: 15px;
   }
+
+  // &:hover {
+  //   color: $White;
+  // }
 }

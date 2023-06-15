@@ -18,7 +18,15 @@
 
       button {
         color: #fff;
+
+        svg {
+          path {
+            stroke:#fff;
+            fill: rgb(49, 48, 55);
+          }
+        }
       }
+
     }
   }
 

@@ -54,6 +54,14 @@
       display: flex;
       justify-content: flex-start;
       align-content: center;
+
+      button {
+        margin-right: 10px;
+      }
+    }
+
+    .options {
+      display: flex;
     }
   }
 

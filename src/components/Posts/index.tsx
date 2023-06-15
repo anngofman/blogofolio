@@ -60,7 +60,7 @@ export const Post = (props: Props) => {
           <LikeButton onClick={likeBtnOnClick} like={like} />
           <DisLikeButton onClick={disLikeBtnOnClick} dislike={dislikes} />
         </div>
-        <div>
+        <div className={styles.options}>
           <Bookmark />
           <MenuMoreButton onClick={() => { }} />
         </div>

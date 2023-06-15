@@ -1,5 +1,6 @@
 import styles from './searchButton.module.scss'
-import search from '../../Icons/buttons/Search/search.svg'
+import search from '../../../images/search.svg'
+
 
 type Props = {
   onClick?: () => void

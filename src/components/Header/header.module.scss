@@ -5,12 +5,16 @@
   width: 100%;
   background-color: $Primary;
   display: flex;
-  justify-content: space-between;
+	justify-content: flex-end;
+  // display: flex;
+  // justify-content: space-between;
   position: fixed;
   top: 0;
   margin-bottom: 5em;
-  .navigation{
-    display: flex;
-    justify-content: flex-end;
+
+ 
+
+      .close {
+        display: none;
+      }
   }
-}

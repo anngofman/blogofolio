@@ -1,6 +1,6 @@
 import styles from './burgerButton.module.scss'
-import close from '../../Icons/buttons/Burger/close.svg'
-import open from '../../Icons/buttons/Burger/open.svg'
+import close from '../../../images/Cancel.svg'
+import open from '../../../images/Burger.svg'
 
 type Props = {
   onClick: () => void
