@@ -5,7 +5,7 @@ import LikeIcon from '../../../../Icon/Like'
 
 type Props = {
   onClick: () => void
-  like: number
+  like?: number
 }
 
 const LikeButton = (props: Props) => {
@@ -14,7 +14,7 @@ const LikeButton = (props: Props) => {
     <button onClick={props.onClick}
       className={styles.button}>
         <LikeIcon color='black'/>
-      <span>{props.like+1}</span>
+      <span>{props.like}</span>
     </button>
   )
 }

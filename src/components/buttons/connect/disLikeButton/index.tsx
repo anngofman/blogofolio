@@ -3,7 +3,7 @@ import DisLikeIcon from '../../../../Icon/DisLike'
 
 type Props = {
   onClick: () => void
-  dislike: number
+  dislike?: number
 }
 
 const DisLikeButton = (props: Props) => {  

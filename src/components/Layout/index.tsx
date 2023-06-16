@@ -5,6 +5,8 @@ import { Outlet } from 'react-router-dom'
 import styles from './layout.module.scss'
 import { useContext } from 'react'
 import { ThemeContext } from '../../helpers/ThemeContext'
+
+
 const Layout = () => {
   const {theme} = useContext(ThemeContext)
   return (

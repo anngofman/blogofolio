@@ -1,11 +1,12 @@
+import { NavLink } from 'react-router-dom'
 import Tab from '../Tab'
 import styles from './TabsPanel.module.scss'
 
 import React from 'react'
+import { Url } from '../../../Main'
 type Props = {
-	tabsList: string[]
-	name: string
-	
+  tabsList: Url[]
+  name: string
 }
 const TabsPanel = (props: Props) => {
   if (!props.tabsList.length) return null
@@ -14,7 +15,9 @@ const TabsPanel = (props: Props) => {
     <div className={styles.tabsPanel}>
       {props.tabsList.map((tab, index) => {
         return (
-					<Tab text={tab} id={String(index)} name={props.name} key={index} />
+          <NavLink to={`/posts/${tab.url}`}>
+            <Tab text={tab.title} id={String(index)} name={props.name} key={index} />
+          </NavLink>
         )
       })}
     </div>

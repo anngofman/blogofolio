@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Post.module.scss'
 import LikeButton from '../buttons/connect/LikeButton'
 import DisLikeButton from '../buttons/connect/DisLikeButton'
 import Bookmark from '../buttons/connect/BookmarkButton'
 import MenuMoreButton from '../buttons/connect/MenuMoreButton'
+import { Link } from 'react-router-dom'
 
 type Props = {
   id: string
@@ -12,7 +13,7 @@ type Props = {
   image?: string
   likes: number
   dislikes: number
-  isPopular: false
+  isPopular: boolean
   view?: 'head' | 'main' | 'sideBar'
   className?: string
 }
@@ -26,13 +27,13 @@ export const Post = (props: Props) => {
 
 
   const likeBtnOnClick = () => {
-    setLike((like) => like === 0 ? like = like + 1 : like = like - 1)
-    setDislikes(dislikes => dislikes === 0 ? dislikes = 0 : dislikes -= 1)
+    setLike((like) => like + 1)
+    setDislikes(dislikes => dislikes - 1)
   }
 
   const disLikeBtnOnClick = () => {
-    setDislikes(dislikes => dislikes === 0 ? dislikes += 1 : dislikes -= 1)
-    setLike((like) => like === 0 ? like = 0 : like -= 1)
+    setDislikes(dislikes => dislikes + 1)
+    setLike((like) => like - 1)
   }
 
   // const url = 'https://on-desktop.com/wps/Animals___Cats_Red_Cat_with_open_mouth_044663_.jpg'
@@ -44,7 +45,7 @@ export const Post = (props: Props) => {
         <div className={styles.text}>
           <p>{date.toDateString()}</p>
           <div className={styles.title}>
-            {props.title}
+          <Link to={`/posts/${props.id}`}>{props.title}</Link>
           </div>
           <div className={styles.description}>
             {props.text}
