@@ -1,26 +1,15 @@
-import React, { useCallback } from 'react'
-import {useNavigate} from 'react-router-dom'
+import NavigateBlock from '../../components/nav'
+import Title from '../../components/Title'
+import Wrapper from '../../components/Wrapper'
+import FormAddPost from '../../components/forms/AddPost'
+
 const CreatePost = () => {
-
-  const navigate = useNavigate()
-  
-  const onClick = useCallback(() => {
-    alert('Пост создан')
-    navigate('/', {replace:true})
-  }, [navigate])
-
   return (
-    <>
-      <h2>
-        Create Post Page
-      </h2>
-      <div>
-        <input type="text" />
-      </div>
-      <div>
-        <button onClick={onClick}>Create Post</button>
-      </div>
-    </>
+    <Wrapper>
+      <NavigateBlock title='Add post' back='Home' />
+      <Title text='Add post' />
+      <FormAddPost />
+    </Wrapper>
   )
 }
 

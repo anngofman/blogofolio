@@ -15,7 +15,6 @@ const PostList = (props: Props) => {
   let [postsList, setPostList] = useState([] as PostType[])
   let [postListTms, setPostListTms] = useState([] as PostTypeTms[])
   const [page] = useState(0)
-  console.log(!page)
   const param = useLocation()
   const url = param.pathname
   const str = url.search('popular')

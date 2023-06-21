@@ -21,7 +21,7 @@ const SinglePost = () => {
   return (
     <Wrapper>
       <div className={styles.singlePost}>
-        <NavigateBlock title={'post:' + post.id} />
+        <NavigateBlock back='Home'title={'post:' + post.id} />
         <div className={styles.title}>
           {post.title}
         </div>

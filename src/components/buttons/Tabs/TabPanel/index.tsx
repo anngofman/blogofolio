@@ -15,7 +15,7 @@ const TabsPanel = (props: Props) => {
     <div className={styles.tabsPanel}>
       {props.tabsList.map((tab, index) => {
         return (
-          <NavLink to={`/posts/${tab.url}`}>
+          <NavLink to={`/posts/${tab.url}`} key={index}>
             <Tab text={tab.title} id={String(index)} name={props.name} key={index} />
           </NavLink>
         )

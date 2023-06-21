@@ -2,7 +2,7 @@
 import { Main } from '../../components/Main'
 import Title from '../../components/Title'
 import TabsPanel from '../../components/buttons/Tabs/TabPanel'
-import styles from '../../components/Main/main.module.scss'
+import styles from '../../Pages/Home/main.module.scss'
 
 export type Url = {
   title: string
@@ -26,7 +26,7 @@ const tabsList: Url[] = [
 
 const HomePage = () => {
   return (
-    <div className={`${styles.main} `}>
+    <div className={`${styles.home} `}>
       <div className={styles.blog}>
         <Title text='Blog' />
         <TabsPanel tabsList={tabsList} name='tab' />

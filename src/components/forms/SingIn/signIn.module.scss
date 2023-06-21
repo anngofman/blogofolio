@@ -1,10 +1,5 @@
-@import '../../library/color.scss';
-@import '../../library/fontSize.scss';
-
-.wrapper {
-  margin: 0 auto;
-  max-width: 1120px;
-  width: 100%;
+@import '../../../library/color.scss';
+@import '../../../library/fontSize.scss';
 
   .form {
     max-width: 630px;
@@ -32,11 +27,8 @@
     &>p {
       margin-bottom: $Level4;
     }
-    .btnSingUp{
-      margin-top: $Level4;
-    }
 
-    .singIn {
+    .singUp {
       color: $Gray;
       display: flex;
       justify-content: center;
@@ -48,4 +40,3 @@
       }
     }
   }
-}

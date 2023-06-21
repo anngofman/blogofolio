@@ -1,6 +1,8 @@
 import LoginButton from '../buttons/Login'
 import { useAuthContext } from '../../helpers/AuthProvider'
 import styles from './aboutUser.module.scss'
+import { useNavigate } from 'react-router-dom'
+
 type Props = {
   className?: string
   text: string
@@ -9,9 +11,16 @@ type Props = {
 const AboutUser = (props: Props) => {
   const userName: string[] = props.text.split(' ')
   const { isAuthorized, login, logout } = useAuthContext()
+  const navigate = useNavigate()
+
+  const onClick = () => {
+    navigate('signIn')
+    login()
+  }
+
   return (
     <>
-      <LoginButton onClick={login} className={(isAuthorized) ? 'notAuthorized' : ''} />
+      <LoginButton onClick={onClick} className={(isAuthorized) ? 'notAuthorized' : ''} />
       <div onClick={logout} className={`
         ${styles.wrapper}
         ${styles[`${(!isAuthorized) ? 'notAuthorized' : ''}`]}

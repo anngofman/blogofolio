@@ -4,7 +4,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
 
   .wrapp {
     &.light {
@@ -21,7 +21,7 @@
 
         svg {
           path {
-            stroke:#fff;
+            stroke: #fff;
             fill: rgb(49, 48, 55);
           }
         }
@@ -35,9 +35,12 @@
     flex-grow: 1;
     justify-content: center;
     margin-top: 5em;
+    height: 100%;
   }
 
   .footer {
-    display: flex;
+    // display: flex;
+    display: table-row;
+    height: 100vh;
   }
 }

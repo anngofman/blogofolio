@@ -41,21 +41,25 @@ export const Post = (props: Props) => {
   const wrapClass = `${styles.post} ${(props.view === 'head') ? styles.head : ((props.view === 'main') ? styles.main : styles.sideBar)}`
   return (
     <div className={`${wrapClass} ${props.className}}`}>
-      <div className={styles.content}>
-        <div className={styles.text}>
-          <p>{date.toDateString()}</p>
-          <div className={styles.title}>
-          <Link to={`/posts/${props.id}`}>{props.title}</Link>
+      <Link to={`/posts/${props.id}`}>
+        <div className={styles.content}>
+          <div className={styles.text}>
+            <p>{date.toDateString()}</p>
+            <div className={styles.title}>
+              {/* <Link to={`/posts/${props.id}`}>{props.title}</Link> */}
+              <h2>{props.title}</h2>
+            </div>
+            <div className={styles.description}>
+              {props.text}
+            </div>
           </div>
-          <div className={styles.description}>
-            {props.text}
+          <div className={styles.postImg}>
+            <img src={props.image} alt={'img'}>
+            </img>
           </div>
         </div>
-        <div className={styles.postImg}>
-          <img src={props.image} alt={'img'}>
-          </img>
-        </div>
-      </div>
+      </Link>
+
       <div className={styles.connect}>
         <div className={styles.likes}>
           <LikeButton onClick={likeBtnOnClick} like={like} />

@@ -1,12 +1,12 @@
 import styles from './styles.module.scss'
 import './styles.module.scss'
-import React from "react"
 
 type Props = {
     text: string
     type: 'primary' | 'secondary' | 'secondary2' 
     disabled?: boolean
     className?: string
+    onClick?:()=>void
 }
 
 const Button = (props: Props) => {
@@ -23,6 +23,7 @@ const Button = (props: Props) => {
                 className={buttonClass}
                 type="button"
                 value={props.text}
+                onClick={props.onClick}
             />
         </>
     )

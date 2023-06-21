@@ -1,28 +1,15 @@
 import Title from '../../components/Title'
-import Button from '../../components/buttons/Button'
-import styles from './signIn.module.scss'
+import Wrapper from '../../components/Wrapper'
+import FormSingIn from '../../components/forms/SingIn'
+import NavigateBlock from '../../components/nav'
 
 export const SignInPage = () => {
+  
   return (
-    <div className={styles.wrapper}>
-      <p>Back to home</p>
-      <Title className={styles.title} text={'Sign In'} />
-      <form action="" className={styles.form}>
-        <label htmlFor="">
-          Email
-        </label>
-        <input type="text" placeholder='Your email' />
-        <label htmlFor="">
-          Password
-        </label>
-        <input type="text" placeholder='Your password' />
-        <p>Forgot password?</p>
-        <Button type={'primary'} text={'Sign In'} />
-        <div className={styles.singUp}>
-          <p>Don’t have an account?</p>
-          <button>Sign Up</button>
-        </div>
-      </form>
-    </div>
+    <Wrapper >
+      <NavigateBlock back='Back to home' />
+      <Title text={'Sign In'} />
+      <FormSingIn  />
+    </Wrapper>
   )
 }
