@@ -4,7 +4,7 @@ import LikeIcon from '../../../../Icon/Like'
 
 
 type Props = {
-  onClick: () => void
+  onClick?: () => void
   like?: number
 }
 

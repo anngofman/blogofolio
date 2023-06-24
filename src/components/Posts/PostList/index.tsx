@@ -1,53 +1,48 @@
 import { useEffect, useState } from 'react'
-import { getPosts, getPostsTms } from '../../../services/getPosts'
 import { Post } from '..'
 import styles from './postList.module.scss'
-import { PostType, PostTypeTms } from '../../../types/postType'
-import { MyResponseType, MyResponseTypeTms } from '../../../types/responseType'
+import { PostTypeTms } from '../../../types/postType'
 import { Url } from '../../Main'
 import { useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { loadPosts } from '../../../store/post/actions'
+import { AppDispatch, AppState } from '../../../store'
+import { useSelector } from 'react-redux'
 
 type Props = {
   tabsList?: Url[]
 }
 
 const PostList = (props: Props) => {
-  let [postsList, setPostList] = useState([] as PostType[])
-  let [postListTms, setPostListTms] = useState([] as PostTypeTms[])
   const [page] = useState(0)
+  const postListTms = useSelector((state: AppState) => state.post.list)
+  // const {page} = useParams()
+  const dispatch = useDispatch<AppDispatch>()
   const param = useLocation()
   const url = param.pathname
-  const str = url.search('popular')
-  let filteredPostsList: PostType[]
+  let filteredPostsList: PostTypeTms[]
 
-  if (str === -1) {
-    filteredPostsList = postsList
+  if (url.includes('popular')) {
+    filteredPostsList = postListTms.filter(post => post.isPopular === true)
+
+  } else if (url.includes('favorites')) {
+    filteredPostsList = postListTms.filter(post => post.isFavorite === true)
+  
   } else {
-    filteredPostsList = postsList.filter(post => post.isPopular === true)
+    filteredPostsList = postListTms
+    console.log(filteredPostsList)
   }
 
   useEffect(() => {
     let limit
-    if (!page) limit = 10
+    if (!page) limit = 12
     else limit = 12
-
-    getPosts(page * 12, limit).then((posts: MyResponseType<PostType>) => {
-      setPostList(posts.items)
-    })
-
-    getPostsTms(page*12,limit).then((post:MyResponseTypeTms<PostTypeTms>)=>{
-      setPostListTms(post.results)
-    })
-  }, [page])
-
-
-
-
+    dispatch(loadPosts(limit,page * 12))
+  }, [page, dispatch])
 
   const getHeaderPost = (): JSX.Element => {
-    const { title, text} = {...postListTms[0]}
-    const {id,  image,  likes, dislikes, isPopular } = { ...filteredPostsList[0] }
-
+    const { id, image, text, likes, dislikes, isPopular, title, isFavorite } = { ...filteredPostsList[0] }
+    console.log(id)
     return (
       <Post
         className={styles.headerPost}
@@ -59,6 +54,7 @@ const PostList = (props: Props) => {
         likes={likes}
         dislikes={dislikes}
         isPopular={isPopular}
+        isFavorite={isFavorite}
         view='head'
       />
     )
@@ -70,10 +66,14 @@ const PostList = (props: Props) => {
         {!page && getHeaderPost()}
         <div className={styles.mainPosts}>
           {filteredPostsList.map((post, index) => {
+            
             if (!page && (index === 0 || index > 4)) {
               return null
+            } 
+            if (index >= 6) {
+              return null
             }
-            const { id, image, text, likes, dislikes, isPopular, title } = { ...post }
+            const { id, image, text, likes, dislikes, isPopular, title, isFavorite } = { ...post }
             return (
               <Post
                 className={styles[`main${index + 1}`]}
@@ -85,19 +85,24 @@ const PostList = (props: Props) => {
                 likes={likes}
                 dislikes={dislikes}
                 isPopular={isPopular}
+                isFavorite={isFavorite}
                 view='main'
               />
             )
+          
           })}
         </div>
       </div>
 
       <div className={styles.previewSide}>{
         filteredPostsList.map((post, index) => {
-          if (!page && index < 4) {
+          if (!page && index <= 4) {
             return null
           }
-          const { id, image, text, likes, dislikes, isPopular, title } = { ...post }
+          if (index < 6) {
+            return null
+          }
+          const { id, image, text, likes, dislikes, isPopular, title, isFavorite } = { ...post }
           return (
             <Post
               className={styles[`side${index + 1}`]}
@@ -109,6 +114,7 @@ const PostList = (props: Props) => {
               likes={likes}
               dislikes={dislikes}
               isPopular={isPopular}
+              isFavorite={isFavorite}
               view='sideBar'
             />
           )

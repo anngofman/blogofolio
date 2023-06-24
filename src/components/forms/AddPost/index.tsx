@@ -46,10 +46,10 @@ if (file) {
         <input type="textarea " placeholder='Add your text' />
       </div>
       <div className={styles.btn}>
-        <Button text='Delete' type='secondary2' />
+        <Button type='button' text='Delete' typeStyle='secondary2' />
         <div className={styles.btnRight}>
-          <Button text='Cancel' type='secondary' />
-          <Link to='/'><Button text='Add post' type='primary' /></Link>
+          <Button type='button' text='Cancel' typeStyle='secondary' />
+          <Link to='/'><Button type='button' text='Add post' typeStyle='primary' /></Link>
         </div>
       </div>
     </form>

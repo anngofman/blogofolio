@@ -17,7 +17,9 @@
     margin-top: $Level4;
     margin-bottom: $Level8;
   }
-
+.errors{
+  color:red;
+}
   input {
     height: 55px;
     width: 100%;
@@ -27,11 +29,11 @@
   &>p {
     margin-bottom: $Level4;
   }
-  .btnSingUp{
+  .btnSignUp{
     margin-top: $Level4;
   }
 
-  .singIn {
+  .signIn {
     color: $Gray;
     display: flex;
     justify-content: center;

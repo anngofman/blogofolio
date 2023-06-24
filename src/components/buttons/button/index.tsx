@@ -3,16 +3,17 @@ import './styles.module.scss'
 
 type Props = {
     text: string
-    type: 'primary' | 'secondary' | 'secondary2' 
+    typeStyle: 'primary' | 'secondary' | 'secondary2' 
     disabled?: boolean
     className?: string
+    type:'button' | 'submit'
     onClick?:()=>void
 }
 
 const Button = (props: Props) => {
     const buttonClass = `
         ${styles.button} 
-        ${styles[`${props.type}Button`]} 
+        ${styles[`${props.typeStyle}Button`]} 
         ${props.disabled ? styles.disabled : ''}
         ${props.className}
     `
@@ -21,7 +22,7 @@ const Button = (props: Props) => {
         <>
             <input
                 className={buttonClass}
-                type="button"
+                type={props.type}
                 value={props.text}
                 onClick={props.onClick}
             />

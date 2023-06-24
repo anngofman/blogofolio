@@ -5,23 +5,33 @@ import DisLikeButton from '../../components/buttons/connect/DisLikeButton'
 import Bookmark from '../../components/buttons/connect/BookmarkButton'
 import styles from './singlePost.module.scss'
 import NavigateBlock from '../../components/nav'
-import { PostType } from '../../types/postType'
+import { PostTypeTms } from '../../types/postType'
 import { getSinglePost } from '../../services/getSinglePost'
 import Wrapper from '../../components/Wrapper'
+import { useDispatch } from 'react-redux'
+import { AppDispatch, AppState } from '../../store'
+import { setFavPostAction } from '../../store/post/actions'
+import { useSelector } from 'react-redux'
 
 const SinglePost = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const { postId } = useParams()
-  const [post, setPost] = useState({} as PostType)
+  const [post, setPost] = useState({} as PostTypeTms)
+  const id = Number(postId)
 
   useEffect(() => {
     postId && getSinglePost(postId).then(res => setPost(res))
   }, [postId])
-  console.log(post)
+
+  const clickFav = () => {
+    dispatch(setFavPostAction(id))
+  }
+
 
   return (
     <Wrapper>
       <div className={styles.singlePost}>
-        <NavigateBlock back='Home'title={'post:' + post.id} />
+        <NavigateBlock back='Home' title={'post:' + post.id} />
         <div className={styles.title}>
           {post.title}
         </div>
@@ -37,12 +47,11 @@ const SinglePost = () => {
             <DisLikeButton onClick={() => { }} dislike={post.dislikes} />
           </div>
           <div className={styles.bookmark}>
-            <Bookmark title='Add to favorites'/>
+            <Bookmark  onClick={clickFav} title='Add to favorites' />
           </div>
         </div>
       </div>
     </Wrapper>
-
   )
 }
 

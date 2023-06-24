@@ -1,8 +1,10 @@
-export type RegistrationResponseType = {
+
+export type RegistrationErrorsType = {
+  [key: string]: string[]
+}
+
+export type UserType = {
   id: string,
   email: string,
   username: string
-}
-export type RegistrationErrorsType = {
-  [key: string]: string[]
 }

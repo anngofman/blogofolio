@@ -2,7 +2,7 @@ import styles from './DisLikeButton.module.scss'
 import DisLikeIcon from '../../../../Icon/DisLike'
 
 type Props = {
-  onClick: () => void
+  onClick?: () => void
   dislike?: number
 }
 

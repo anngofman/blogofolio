@@ -1,14 +1,7 @@
 @import '../../library/color.scss';
 @import '../../library/fontSize.scss';
-
-.wrapper {
-  margin: 0 auto;
-  margin-top: 5em;
-
-  &>p {
-    margin-bottom: $Level4;
-  }
-
+.success{
+  height: 100vh;
   .form {
     max-width: 630px;
     margin: 0 auto;
@@ -27,3 +20,4 @@
     }
   }
 }
+  

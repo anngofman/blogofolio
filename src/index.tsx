@@ -12,7 +12,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
       <ThemeContextComponent>
         <MenuContextProvider>
@@ -20,7 +19,6 @@ root.render(
         </MenuContextProvider>
       </ThemeContextComponent>
     </Provider>
-  </React.StrictMode>
 );
 
 

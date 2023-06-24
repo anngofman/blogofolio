@@ -8,7 +8,7 @@ type Props = {
 
 const Wrapper = (props:Props) => {
   return (
-    <div className={`${styles.wrapp} ${styles[`${props.className}`]}`}>
+    <div className={`${styles.wrapp} ${props.className}`}>
       {props.children}
     </div>
   )

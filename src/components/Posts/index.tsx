@@ -1,52 +1,53 @@
-import { useState } from 'react'
 import styles from './Post.module.scss'
 import LikeButton from '../buttons/connect/LikeButton'
 import DisLikeButton from '../buttons/connect/DisLikeButton'
 import Bookmark from '../buttons/connect/BookmarkButton'
 import MenuMoreButton from '../buttons/connect/MenuMoreButton'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { AppDispatch, AppState } from '../../store'
+import { dislikePostAction, likePostAction, setFavPostAction } from '../../store/post/actions'
+import { useSelector } from 'react-redux'
+
 
 type Props = {
-  id: string
+  id: number
   title: string
   text: string
   image?: string
   likes: number
   dislikes: number
   isPopular: boolean
+  isFavorite: boolean
   view?: 'head' | 'main' | 'sideBar'
   className?: string
+  onClick?: () => void
 }
 
 export const Post = (props: Props) => {
-
   let date = new Date()
-
-  const [like, setLike] = useState(props.likes)
-  const [dislikes, setDislikes] = useState(props.dislikes)
-
+  const dispatch = useDispatch<AppDispatch>()
 
   const likeBtnOnClick = () => {
-    setLike((like) => like + 1)
-    setDislikes(dislikes => dislikes - 1)
+    dispatch(likePostAction(props.id))
   }
 
   const disLikeBtnOnClick = () => {
-    setDislikes(dislikes => dislikes + 1)
-    setLike((like) => like - 1)
+    dispatch(dislikePostAction(props.id))
   }
 
-  // const url = 'https://on-desktop.com/wps/Animals___Cats_Red_Cat_with_open_mouth_044663_.jpg'
+const clickFav =()=> {
+    dispatch(setFavPostAction(props.id))
+}
 
   const wrapClass = `${styles.post} ${(props.view === 'head') ? styles.head : ((props.view === 'main') ? styles.main : styles.sideBar)}`
   return (
-    <div className={`${wrapClass} ${props.className}}`}>
-      <Link to={`/posts/${props.id}`}>
+    <div className={`${wrapClass} ${props.className}`}>
+      <Link to={`/posts/${props.id}`} className={styles.link}>
         <div className={styles.content}>
           <div className={styles.text}>
             <p>{date.toDateString()}</p>
             <div className={styles.title}>
-              {/* <Link to={`/posts/${props.id}`}>{props.title}</Link> */}
               <h2>{props.title}</h2>
             </div>
             <div className={styles.description}>
@@ -59,14 +60,13 @@ export const Post = (props: Props) => {
           </div>
         </div>
       </Link>
-
       <div className={styles.connect}>
         <div className={styles.likes}>
-          <LikeButton onClick={likeBtnOnClick} like={like} />
-          <DisLikeButton onClick={disLikeBtnOnClick} dislike={dislikes} />
+          <LikeButton like={props.likes} onClick={likeBtnOnClick} />
+          <DisLikeButton dislike={props.dislikes} onClick={disLikeBtnOnClick} />
         </div>
         <div className={styles.options}>
-          <Bookmark />
+          <Bookmark isFav={props.isFavorite} onClick={clickFav} />
           <MenuMoreButton onClick={() => { }} />
         </div>
       </div>

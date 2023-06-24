@@ -1,9 +1,8 @@
-import { PostType } from './../../types/postType';
 export type FavPostsStateType = {
-  list: PostType[]
+  list: number[]
 }
 
 export type FavPostsActionType = {
   type: string
-  payload: PostType
+  payload: number
 }

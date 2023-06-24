@@ -10,6 +10,8 @@ import { Main } from './components/Main';
 import { AuthProvider } from './helpers/AuthProvider';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RequireAuth from './helpers/RequireAuth';
+import ConfirmPage from './Pages/ConfirmPage';
+import ActivatePage from './Pages/ActivatePage';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path='posts/:postId' element={<SinglePost />} />
             <Route path='signIn' element={<SignInPage />} />
             <Route path='signUp' element={<SignUpPage />} />
+            <Route path='confirm' element={<ConfirmPage />} />
+            <Route path='activate/:uid/:token' element={<ActivatePage/>} />
             <Route path='success' element={<SuccessPage />} />
             <Route path='createPost' element={
               <RequireAuth>

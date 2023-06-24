@@ -45,7 +45,7 @@ const AsideMenu = (props: Props) => {
           <ThemeBtn theme='light' onCliickTheme={() => onClickTheme('light')} />
           <ThemeBtn theme='dark' onCliickTheme={() => onClickTheme('dark')} />
         </div>
-        <Button type='secondary' text='Log Out' />
+        <Button type='button' typeStyle='secondary' text='Log Out' />
       </div>
     </div>
   )
