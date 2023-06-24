@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getPages } from './getPages'
 import { Link } from 'react-router-dom'
+import styles from './pages.module.scss'
 
 type Props = {
   total: number,
@@ -18,14 +19,14 @@ const Pager = ({ total, itemPerPage, currentPage }: Props) => {
 
 
   return (
-    <div className='pager'>
+    <div className={styles.pager}>
       {
-        pages.map(item => (
+        pages.map((item, index) => (
           item === '..'
             ? (
-              <span>{item}</span>
+              <span key={index}>{item}</span>
             ) : (
-              <Link to={'/posts/' + item}>{item}</Link>
+              <Link key={''+index+item} to={'/posts/' + item}>{item}</Link>
             )
         ))
       }

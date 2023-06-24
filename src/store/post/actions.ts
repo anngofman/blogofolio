@@ -1,8 +1,8 @@
 import { AppThunk } from ".."
-import { PostTypeTms } from '../../types/postType'
 import { getPostsTms } from "../../services/getPosts"
+import { MyResponseTypeTms } from "../../types/responseType"
 
-export const setPosts = (posts: PostTypeTms[]) => {
+export const setPosts = (posts: MyResponseTypeTms) => {
 	return {
 		type: 'LOAD_POSTS',
 		payload: posts
@@ -12,7 +12,7 @@ export const setPosts = (posts: PostTypeTms[]) => {
 export const loadPosts = (limit:number, offset:number): AppThunk => {
 	return async (dispatch) => {
 		const posts = await getPostsTms(limit, offset)
-		dispatch(setPosts(posts as PostTypeTms[]))
+		dispatch(setPosts(posts as MyResponseTypeTms))
 	}
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Post } from '..'
 import styles from './postList.module.scss'
 import { PostTypeTms } from '../../../types/postType'
@@ -11,15 +11,17 @@ import { useSelector } from 'react-redux'
 
 type Props = {
   tabsList?: Url[]
+  page:number
 }
 
 const PostList = (props: Props) => {
-  const [page] = useState(0)
   const postListTms = useSelector((state: AppState) => state.post.list)
-  // const {page} = useParams()
+  const page = props.page as number
   const dispatch = useDispatch<AppDispatch>()
   const param = useLocation()
   const url = param.pathname
+  
+
   let filteredPostsList: PostTypeTms[]
 
   if (url.includes('popular')) {
@@ -27,22 +29,20 @@ const PostList = (props: Props) => {
 
   } else if (url.includes('favorites')) {
     filteredPostsList = postListTms.filter(post => post.isFavorite === true)
-  
+
   } else {
     filteredPostsList = postListTms
-    console.log(filteredPostsList)
   }
 
   useEffect(() => {
-    let limit
-    if (!page) limit = 12
-    else limit = 12
-    dispatch(loadPosts(limit,page * 12))
+    let limit = 12
+    let offset = (page - 1) * 12
+    console.log(page)
+    dispatch(loadPosts(limit, offset))
   }, [page, dispatch])
 
   const getHeaderPost = (): JSX.Element => {
     const { id, image, text, likes, dislikes, isPopular, title, isFavorite } = { ...filteredPostsList[0] }
-    console.log(id)
     return (
       <Post
         className={styles.headerPost}
@@ -63,13 +63,13 @@ const PostList = (props: Props) => {
   return (
     <div className={styles.postList}>
       <div className={styles.mainSide}>
-        {!page && getHeaderPost()}
+        {!(page-1) && getHeaderPost()}
         <div className={styles.mainPosts}>
           {filteredPostsList.map((post, index) => {
-            
-            if (!page && (index === 0 || index > 4)) {
+
+            if (!(page-1) && (index === 0 || index > 4)) {
               return null
-            } 
+            }
             if (index >= 6) {
               return null
             }
@@ -89,14 +89,14 @@ const PostList = (props: Props) => {
                 view='main'
               />
             )
-          
+
           })}
         </div>
       </div>
 
       <div className={styles.previewSide}>{
         filteredPostsList.map((post, index) => {
-          if (!page && index <= 4) {
+          if (!(page-1) && index <= 4) {
             return null
           }
           if (index < 6) {

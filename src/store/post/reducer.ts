@@ -1,21 +1,21 @@
-import { PostTypeTms } from "../../types/postType";
+import { MyResponseTypeTms } from "../../types/responseType";
 import { PostsActionType, PostsStateType } from "./types";
 
 
 // const likedPosts: PostType[] = JSON.parse(localStorage.getItem('LIKED_POSTS') as string) || []
 
 const initValue: PostsStateType = {
+  count:0,
   list: []
 }
 
 export const postsReducer = (state: PostsStateType = initValue, action: PostsActionType): PostsStateType => {
 
-
   switch (action.type) {
     case 'LOAD_POSTS':
       return {
-        list: (action.payload as PostTypeTms[]).map(item => {
-
+        count:(action.payload as MyResponseTypeTms).count,
+        list: ((action.payload as MyResponseTypeTms).results).map(item => {
           return {
             ...item,
             likes: Math.round(Math.random() * (1000)),
@@ -28,6 +28,7 @@ export const postsReducer = (state: PostsStateType = initValue, action: PostsAct
       }
     case 'LIKE_POST':
       return {
+        count:(action.payload as MyResponseTypeTms).count,
         list: state.list.map(item => {
           if (item.id === action.payload) {
             return {
@@ -45,6 +46,7 @@ export const postsReducer = (state: PostsStateType = initValue, action: PostsAct
       }
     case 'DISLIKE_POST':
       return {
+        count:(action.payload as MyResponseTypeTms).count,
         list: state.list.map(item => {
           if (item.id === action.payload) {
             return {
@@ -62,6 +64,7 @@ export const postsReducer = (state: PostsStateType = initValue, action: PostsAct
       }
     case 'SET_FAVORITE_POST':
       return {
+        count:(action.payload as MyResponseTypeTms).count,
         list: state.list.map(item => {
           if (item.id === action.payload) {
             if (item.isFavorite) {

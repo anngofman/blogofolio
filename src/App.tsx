@@ -12,8 +12,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RequireAuth from './helpers/RequireAuth';
 import ConfirmPage from './Pages/ConfirmPage';
 import ActivatePage from './Pages/ActivatePage';
+import { useEffect } from 'react';
+import { loadPosts } from './store/post/actions';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from './store';
+
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(()=>{
+    dispatch(loadPosts(12,0))
+  })
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -25,7 +35,8 @@ function App() {
               <Route path='favorites' element={<Main />} />
               <Route path='popular' element={<Main />} />
             </Route>
-            <Route path='posts/:postId' element={<SinglePost />} />
+            <Route path='post/:postId' element={<SinglePost />} />
+            <Route path='posts/:page' element={<HomePage/>}/>
             <Route path='signIn' element={<SignInPage />} />
             <Route path='signUp' element={<SignUpPage />} />
             <Route path='confirm' element={<ConfirmPage />} />

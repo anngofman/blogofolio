@@ -9,10 +9,11 @@ export type Url = {
 type Props = {
   className?: string
   type?: Url[]
+  page?:number
 }
 
 export const Main = (props: Props) => {
   return (
-    <PostList tabsList={props.type} />
+    <PostList page={props.page as number} tabsList={props.type} />
   )
 }

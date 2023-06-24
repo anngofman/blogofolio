@@ -27,28 +27,25 @@ const SinglePost = () => {
     dispatch(setFavPostAction(id))
   }
 
-
   return (
-    <Wrapper>
-      <div className={styles.singlePost}>
-        <NavigateBlock back='Home' title={'post:' + post.id} />
-        <div className={styles.title}>
-          {post.title}
+    <Wrapper className={styles.singlePost}>
+      <NavigateBlock back='Home' title={'post:' + post.id} />
+      <div className={styles.title}>
+        {post.title}
+      </div>
+      <div className={styles.img}>
+        <img src={post.image} alt='jdk' />
+      </div>
+      <div className={styles.text}>
+        {post.text}
+      </div>
+      <div className={styles.connect}>
+        <div className={styles.likes}>
+          <LikeButton onClick={() => { }} like={post.likes} />
+          <DisLikeButton onClick={() => { }} dislike={post.dislikes} />
         </div>
-        <div className={styles.img}>
-          <img src={post.image} alt='jdk' />
-        </div>
-        <div className={styles.text}>
-          {post.text}
-        </div>
-        <div className={styles.connect}>
-          <div className={styles.likes}>
-            <LikeButton onClick={() => { }} like={post.likes} />
-            <DisLikeButton onClick={() => { }} dislike={post.dislikes} />
-          </div>
-          <div className={styles.bookmark}>
-            <Bookmark  onClick={clickFav} title='Add to favorites' />
-          </div>
+        <div className={styles.bookmark}>
+          <Bookmark onClick={clickFav} title='Add to favorites' />
         </div>
       </div>
     </Wrapper>

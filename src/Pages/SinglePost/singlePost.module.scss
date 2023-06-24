@@ -3,7 +3,8 @@
 .singlePost {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  height: 100vh;
 
   .title {
     margin-top: 32px;

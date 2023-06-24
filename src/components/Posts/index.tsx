@@ -5,10 +5,8 @@ import Bookmark from '../buttons/connect/BookmarkButton'
 import MenuMoreButton from '../buttons/connect/MenuMoreButton'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { AppDispatch, AppState } from '../../store'
+import { AppDispatch } from '../../store'
 import { dislikePostAction, likePostAction, setFavPostAction } from '../../store/post/actions'
-import { useSelector } from 'react-redux'
-
 
 type Props = {
   id: number
@@ -43,7 +41,7 @@ const clickFav =()=> {
   const wrapClass = `${styles.post} ${(props.view === 'head') ? styles.head : ((props.view === 'main') ? styles.main : styles.sideBar)}`
   return (
     <div className={`${wrapClass} ${props.className}`}>
-      <Link to={`/posts/${props.id}`} className={styles.link}>
+      <Link to={`/post/${props.id}`} className={styles.link}>
         <div className={styles.content}>
           <div className={styles.text}>
             <p>{date.toDateString()}</p>

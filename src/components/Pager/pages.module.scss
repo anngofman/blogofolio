@@ -1,0 +1,10 @@
+.pager{
+height: 50px;
+margin: 20px auto;
+width: max-content;
+display: flex;
+align-items: center;
+&>*{
+  margin: 32px;
+}
+}
