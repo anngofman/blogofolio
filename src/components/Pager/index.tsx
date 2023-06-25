@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 import styles from './pages.module.scss'
 
 type Props = {
+  endpoint:string,
   total: number,
   itemPerPage: number,
   currentPage: number
 }
 
-const Pager = ({ total, itemPerPage, currentPage }: Props) => {
+const Pager = ({ endpoint,total, itemPerPage, currentPage }: Props) => {
   const [pages, setPages] = useState<ReturnType<typeof getPages>>([])
 
   useEffect(() => {
@@ -21,12 +22,12 @@ const Pager = ({ total, itemPerPage, currentPage }: Props) => {
   return (
     <div className={styles.pager}>
       {
-        pages.map((item, index) => (
+        pages.map((item, i) => (
           item === '..'
             ? (
-              <span key={index}>{item}</span>
+              <span key={i}>{item}</span>
             ) : (
-              <Link key={''+index+item} to={'/posts/' + item}>{item}</Link>
+              <Link key={i} to={`/${endpoint}/${item}`}>{item}</Link>
             )
         ))
       }

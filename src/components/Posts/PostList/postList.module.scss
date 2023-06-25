@@ -1,19 +1,21 @@
 
 .postList{
-	display: flex;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
 	.mainSide{
-		flex:1 1 736px;
+		max-width: 100%;
 		
 		.mainPosts{
+		
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: max-content;
 			grid-auto-rows: max-content ;
-			gap:2em;
+			// gap:2em;
 		}
 
 	}
 	.previewSide{
-		flex:0 0 30%;
+		max-width: 100%;
 	}
 }

@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 50px;
+  border-bottom: 1px solid $Gray;
 .link{
   color:black
 }
@@ -77,13 +77,15 @@ p{
   }
 
   &.head {
-    max-width: 740px;
+    max-width: 95%;
     height: 460px;
+    margin-top: 3px;
   }
 
   &.main {
-    max-width: 352px;
-    max-height: 452px;
+    max-width: 80%;
+    height: 460px;
+    margin: 40px 30px 30px;
 
     .content {
       flex-direction: column-reverse;
@@ -103,7 +105,7 @@ p{
       }
 
       .postImg {
-        height: 77%;
+        width: 100%;
 
         img {
           height: 100%;
@@ -114,11 +116,12 @@ p{
 
   &.sideBar {
     max-width: 352px;
-    height: 200px;
-
+    height: 230px;
+    margin-top: 10px;
+   justify-content:flex-start; 
     .content {
-
-      justify-content: space-between;
+   
+  
 
       .title {
         font-weight: 600;

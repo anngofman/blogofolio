@@ -10,12 +10,11 @@ type Props = {
 
 const AboutUser = (props: Props) => {
   const userName: string[] = props.text.split(' ')
-  const { isAuthorized, login, logout } = useAuthContext()
+  const { isAuthorized, logout } = useAuthContext()
   const navigate = useNavigate()
 
   const onClick = () => {
     navigate('signIn')
-    login()
   }
 
   return (

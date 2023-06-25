@@ -1,55 +1,91 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../buttons/Button'
 import styles from './addPost.module.scss'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useCallback, useState } from 'react'
+import { CreatePostAction } from '../../../store/createPost/actions'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../store'
+
+type FormCreateType = {
+  title: string
+  text: string
+  description: string
+  lesson_num: number
+}
 
 const FormAddPost = () => {
-  const loadImgHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-const file= e.target.files?.[0]
+  const dispatch = useDispatch<AppDispatch>()
+  const [image, setImage] = useState<File | string>('')
+  const navigate = useNavigate()
+  const [form, setForm] = useState<FormCreateType>({
+    title: '',
+    text: '',
+    description: '',
+    lesson_num: 0
+  })
 
-if (file) {
-  
-}
+  const onChangeFormElement = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value
+      })
+    }, [form, setForm]
+  )
+
+  const loadImgHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+
+    if (file) {
+      setImage(file)
+    }
   }
+
+  const onPostCreateClick = () => {
+    const nav = () => navigate('/')
+    const { title, text, description, lesson_num } = form
+    dispatch(CreatePostAction(title, text, description, lesson_num, image, nav))
+  }
+
   return (
     <form action="" className={styles.form}>
       <div>
         <label htmlFor="">
           Title
         </label>
-        <input type="text" placeholder='Title' />
+        <input type="text" placeholder='Title' name='title' onChange={onChangeFormElement} />
       </div>
       <div className={styles.import}>
         <span>
           <label htmlFor="">
             Lesson number
           </label>
-          <input type="text" placeholder='Lesson namber' />
+          <input type="number" placeholder='Lesson namber' name='lesson_num' onChange={onChangeFormElement} />
         </span>
         <span>
           <label htmlFor="">
             Image
           </label>
-          <input type="file" placeholder=' Image' onChange={loadImgHandler}/>
+          <input type="file" placeholder=' Image' name='image' onChange={loadImgHandler} />
         </span>
       </div>
       <div>
         <label htmlFor="">
           Descriptions
         </label>
-        <input type="textarea " placeholder='Add your text' />
+        <input type="textarea " placeholder='Add your text' name='description' onChange={onChangeFormElement} />
       </div>
       <div>
         <label htmlFor="">
           text
         </label>
-        <input type="textarea " placeholder='Add your text' />
+        <input type="textarea " placeholder='Add your text' name='text' onChange={onChangeFormElement} />
       </div>
       <div className={styles.btn}>
         <Button type='button' text='Delete' typeStyle='secondary2' />
         <div className={styles.btnRight}>
           <Button type='button' text='Cancel' typeStyle='secondary' />
-          <Link to='/'><Button type='button' text='Add post' typeStyle='primary' /></Link>
+          <Button type='button' text='Add post' typeStyle='primary' onClick={onPostCreateClick} />
         </div>
       </div>
     </form>

@@ -1,9 +1,6 @@
 import { MyResponseTypeTms } from "../../types/responseType";
 import { PostsActionType, PostsStateType } from "./types";
 
-
-// const likedPosts: PostType[] = JSON.parse(localStorage.getItem('LIKED_POSTS') as string) || []
-
 const initValue: PostsStateType = {
   count:0,
   list: []

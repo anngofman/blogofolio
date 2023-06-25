@@ -25,4 +25,5 @@ export type PostTypeTms = {
   isLiked?:boolean
   isDisliked?:boolean
   isFavorite:boolean
+  author?:number
 }

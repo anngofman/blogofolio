@@ -27,22 +27,26 @@ const tabsList: Url[] = [
   {
     title: 'Popular',
     url: 'popular'
+  },
+  {
+    title: 'My Posts',
+    url: 'myposts'
   }
 ]
 
 const HomePage = () => {
+  const tokens = useSelector((state:AppState)=>state.auth.tokens)
+  console.log(tokens)
   const { page } = useParams()
-  const total = useSelector((state: AppState) => state.post.count)
   const currenPage = page ? +page : 1
-  const numPage= page? +page : 1
   return (
     <Wrapper>
       <div className={`${styles.home} `}>
         <div className={styles.blog}>
           <Title text='Blog' />
           <TabsPanel tabsList={tabsList} name='tab' />
-          <Main page={numPage} type={tabsList} />
-          <Pager total={total} itemPerPage={12} currentPage={currenPage}/>
+          <Main page={currenPage} type={tabsList} />
+          {/* <Pager endpoint='posts' total={total} itemPerPage={12} currentPage={currenPage}/> */}
         </div>
       </div>
     </Wrapper>

@@ -16,13 +16,14 @@ import { useEffect } from 'react';
 import { loadPosts } from './store/post/actions';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from './store';
+import SearchPage from './Pages/SearchPage';
 
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
 
-  useEffect(()=>{
-    dispatch(loadPosts(12,0))
+  useEffect(() => {
+    dispatch(loadPosts(12, 0))
   })
   return (
     <BrowserRouter>
@@ -31,16 +32,28 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path='posts' element={<HomePage />} >
-              <Route path='all' element={<Main />} />
-              <Route path='favorites' element={<Main />} />
-              <Route path='popular' element={<Main />} />
+              <Route path=':page' element={<HomePage />} />
+              <Route path='all' element={<Main />} >
+                <Route path=':page' element={<Main />} />
+              </Route>
+              <Route path='favorites' element={<Main />} >
+                <Route path=':page' element={<Main />} />
+              </Route>
+              <Route path='popular' element={<Main />} >
+                <Route path=':page' element={<Main />} />
+              </Route>
+              <Route path='myposts' element={<Main />} >
+                <Route path=':page' element={<Main />} />
+              </Route>
             </Route>
             <Route path='post/:postId' element={<SinglePost />} />
-            <Route path='posts/:page' element={<HomePage/>}/>
+
             <Route path='signIn' element={<SignInPage />} />
+            <Route path='search' element={<SearchPage />} />
+            <Route path='search/:page' element={<SearchPage />} />
             <Route path='signUp' element={<SignUpPage />} />
             <Route path='confirm' element={<ConfirmPage />} />
-            <Route path='activate/:uid/:token' element={<ActivatePage/>} />
+            <Route path='activate/:uid/:token' element={<ActivatePage />} />
             <Route path='success' element={<SuccessPage />} />
             <Route path='createPost' element={
               <RequireAuth>
