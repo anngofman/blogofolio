@@ -2,6 +2,7 @@
 
 .confirm {
   min-height: 100vh;
+  height: 100%;
 
   .form {
     max-width: 630px;
@@ -13,9 +14,8 @@
     padding: 40px;
     gap: 10px;
     position: absolute;
-    
-    left: 648px;
-    top: 364px;
+    bottom: 50%;
+    left: 30%;
 
     p {
       width: 318px;

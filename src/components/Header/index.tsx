@@ -10,19 +10,16 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { clearSearchAction } from '../../store/search/actions'
 
-
 export const Header = () => {
   const navigate = useNavigate()
-  const [burgerState, setBurgerState] = useState(true)
+  const dispatch = useDispatch()
   const [inputState, setInputState] = useState(true)
   const { isOpen, setIsOpen } = useContext(MenuContext)
-  const dispatch = useDispatch()
 
   const BurgerOnClick = () => {
-
-    setBurgerState(!isOpen ? burgerState : !burgerState)
     setIsOpen(!isOpen)
   }
+
   const closeButtonOnClick = () => {
     setInputState((inputState) => !inputState)
     dispatch(clearSearchAction())
@@ -35,10 +32,9 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <BurgerButton onClick={BurgerOnClick} isActive={burgerState} />
+      <BurgerButton onClick={BurgerOnClick} isActive={isOpen} className={styles.burger} />
       <InputSearch className={styles.search} isVisible={inputState} placeholder='Search...' />
       <CloseButton className={`
-        ${styles.btnClose}
         ${styles[`${inputState ? 'close' : ''}`]}
         `} onClick={closeButtonOnClick} />
       <SearchButton onClick={searchButtonOnClick} />

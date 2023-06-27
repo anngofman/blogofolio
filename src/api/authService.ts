@@ -42,6 +42,7 @@ export const activation = async (uid: string, token: string) => {
       token
     })
   }
+  
   const request = new Request(url, options)
 
   try {

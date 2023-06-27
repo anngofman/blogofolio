@@ -5,20 +5,31 @@ import { useContext } from 'react'
 import { MenuContext } from '../../helpers/MenuContext'
 import { NavLink } from 'react-router-dom'
 import ThemeBtn from '../buttons/Themes'
-// import { ThemeContext } from '../../helpers/ThemeContext'
-// import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-// import { selectTheme } from '../../store/theme/selectors'
 import { setDarkThemeAction, setLightThemeAction } from '../../store/theme/actions'
+import { useAuthContext } from '../../helpers/AuthProvider'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../store'
 
 type Props = {
   className?: string
 }
 
 const AsideMenu = (props: Props) => {
+  const { logout } = useAuthContext()
+  const {menu} = useSelector((state:AppState)=>state.menu)
   const { isOpen } = useContext(MenuContext)
-  // const { setTheme } = useContext(ThemeContext)
   const dispatch = useDispatch()
+const stateMenu = ()=>{
+  if (menu==='open') {
+return true
+  } else {
+    return false
+  }
+}
+
+
+
   const onClickTheme = (theme: string) => {
     theme === 'light'
       ? dispatch(setLightThemeAction())
@@ -30,22 +41,22 @@ const AsideMenu = (props: Props) => {
     ${isOpen ? styles.open : ''}  
     `}>
       <div className={styles.menuTop}>
-        <AboutUser text='Anna Hofman' />
-        <ul>
+        <AboutUser text='Anna Hofman' className={styles.login}/>
+        <div className={styles.nav}>
           <NavLink to='/'>
             Home
           </NavLink>
           <NavLink to='/createPost'>
             Add Post
           </NavLink>
-        </ul>
+        </div>
       </div>
       <div className={styles.menuBottom}>
         <div className={styles.themeBtns}>
           <ThemeBtn theme='light' onCliickTheme={() => onClickTheme('light')} />
           <ThemeBtn theme='dark' onCliickTheme={() => onClickTheme('dark')} />
         </div>
-        <Button type='button' typeStyle='secondary' text='Log Out' />
+        <Button type='button' typeStyle='secondary' text='Log Out' onClick={logout}/>
       </div>
     </div>
   )

@@ -19,9 +19,7 @@ const InputSearch = (props: Props) => {
   const searchValue = useSelector((state: AppState) => state.search.search)
   const { page } = useParams()
 
-  // const [pageState, setPageState] = useState(1)
   useEffect(() => {
-    // setPageState(page? +page : 1)
     dispatch(setSearchValueAction(searchValue, 6, (page ? +page*6 : 1)))
   }, [dispatch, page])
 

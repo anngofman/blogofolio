@@ -12,13 +12,34 @@
   justify-content: space-between;
   transition: .5s;
 
-  &.open   {
+  &.open {
     left: 0%;
-   }
-  &Top {
-    width: 100%;
   }
 
+  &Top {
+    button {
+      width: 100%;
+      height: 83px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+
+      a {
+        height: 83px;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+  }
 
   &Bottom {
     .themeBtns {
@@ -27,7 +48,6 @@
       height: 80px;
       display: flex;
       justify-content: center;
-
     }
 
     input {
@@ -36,6 +56,4 @@
       height: 80px;
     }
   }
-
-
 }

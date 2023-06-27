@@ -12,23 +12,23 @@ const AboutUser = (props: Props) => {
   const userName: string[] = props.text.split(' ')
   const { isAuthorized, logout } = useAuthContext()
   const navigate = useNavigate()
-
   const onClick = () => {
     navigate('signIn')
   }
 
   return (
     <>
-      <LoginButton onClick={onClick} className={(isAuthorized) ? 'notAuthorized' : ''} />
-      <div onClick={logout} className={`
-        ${styles.wrapper}
-        ${styles[`${(!isAuthorized) ? 'notAuthorized' : ''}`]}
-                      `}>
-        <div className={styles.authorized_icon}>
-          <p>{`${userName[0][0].toLocaleUpperCase()}  ${userName[1][0].toLocaleUpperCase()}`}</p>
-        </div>
-        <p>{`${userName[0]}  ${userName[1]}`}</p>
-      </div>
+      {isAuthorized
+        ? <>
+          <div onClick={logout} className={`${styles.wrapper}`}>
+            <div className={styles.authorized_icon}>
+              <p>{`${userName[0][0].toLocaleUpperCase()}  ${userName[1][0].toLocaleUpperCase()}`}</p>
+            </div>
+            <p>{`${userName[0]}  ${userName[1]}`}</p>
+          </div>
+        </>
+        : <LoginButton onClick={onClick} className={props.className} />
+      }
     </>
   )
 }

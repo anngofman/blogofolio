@@ -7,6 +7,7 @@ import { activationReducer } from "./activation/reducers";
 import { authReducer } from "./auth/reducer";
 import { postsReducer } from "./post/reducer";
 import { SearchReducer } from "./search/reducer";
+import { menuReducer } from "./menu/reducer";
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   activater:activationReducer,
   auth:authReducer,
   post:postsReducer,
-  search:SearchReducer
+  search:SearchReducer,
+  menu:menuReducer
 })
 
 export const store = configureStore({

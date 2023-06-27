@@ -40,6 +40,21 @@ const FormAddPost = () => {
       setImage(file)
     }
   }
+  console.log(form);
+  const onDeleteForm = () => {
+    
+
+    setForm((prevState) => ({
+      ...prevState,
+      title: '',
+      text: '',
+      description: '',
+      lesson_num: 0
+    }))
+    setImage('')
+    console.log(form);
+    
+  }
 
   const onPostCreateClick = () => {
     const nav = () => navigate('/')
@@ -53,14 +68,14 @@ const FormAddPost = () => {
         <label htmlFor="">
           Title
         </label>
-        <input type="text" placeholder='Title' name='title' onChange={onChangeFormElement} />
+        <input value={form.title} type="text" placeholder='Title' name='title' onChange={onChangeFormElement} />
       </div>
       <div className={styles.import}>
         <span>
           <label htmlFor="">
             Lesson number
           </label>
-          <input type="number" placeholder='Lesson namber' name='lesson_num' onChange={onChangeFormElement} />
+          <input value={form.lesson_num}  type="number" placeholder='Lesson number' name='lesson_num' onChange={onChangeFormElement} />
         </span>
         <span>
           <label htmlFor="">
@@ -73,18 +88,18 @@ const FormAddPost = () => {
         <label htmlFor="">
           Descriptions
         </label>
-        <input type="textarea " placeholder='Add your text' name='description' onChange={onChangeFormElement} />
+        <input value={form.description}  type="textarea " placeholder='Add your text' name='description' onChange={onChangeFormElement} />
       </div>
       <div>
         <label htmlFor="">
           text
         </label>
-        <input type="textarea " placeholder='Add your text' name='text' onChange={onChangeFormElement} />
+        <input value={form.text}  type="textarea " placeholder='Add your text' name='text' onChange={onChangeFormElement} />
       </div>
       <div className={styles.btn}>
-        <Button type='button' text='Delete' typeStyle='secondary2' />
+        <Button type='button' text='Delete' typeStyle='secondary2' onClick={onDeleteForm} />
         <div className={styles.btnRight}>
-          <Button type='button' text='Cancel' typeStyle='secondary' />
+          <Button type='button' text='Cancel' typeStyle='secondary' onClick={()=> navigate('/')}/>
           <Button type='button' text='Add post' typeStyle='primary' onClick={onPostCreateClick} />
         </div>
       </div>

@@ -15,7 +15,7 @@ const LoginButton = (props: Props) => {
     <button
       onClick={props.onClick}
       className={loginClass}>
-      <img src={user} alt={'search'} />
+      <img src={user} alt={'user'} />
     </button>
   )
 }

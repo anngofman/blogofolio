@@ -4,10 +4,14 @@ import Wrapper from '../../components/Wrapper'
 import Button from '../../components/buttons/Button'
 import NavigateBlock from '../../components/nav'
 import styles from './success.module.scss'
+import { useAuthContext } from '../../helpers/AuthProvider'
 
 export const SuccessPage = () => {
-const navigate = useNavigate()
-
+  const navigate = useNavigate()
+  const { login } = useAuthContext()
+  const success = () => {
+    navigate('/')
+  }
 
 
   return (
@@ -16,8 +20,8 @@ const navigate = useNavigate()
       <Title text={'Success'} />
       <form className={styles.form}>
         <p>Email confirmed.
-Your registration is now completed</p>
-        <Button type='button' typeStyle={'primary'} text={'Go to home'} onClick={()=>navigate('/')} />
+          Your registration is now completed</p>
+        <Button type='button' typeStyle={'primary'} text={'Go to home'} onClick={success} />
       </form>
     </Wrapper>
 

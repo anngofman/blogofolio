@@ -36,7 +36,7 @@ const PostList = (props: Props) => {
     filteredPostsList = postListTms.filter(post => post.isFavorite === true)
 
   } else if (url.includes('myposts')) {
-    endpoint = 'myposts'
+    endpoint = 'myposts' 
     filteredPostsList = postListTms.filter(post => post.author === myId)
     console.log(filteredPostsList)
   } else {
@@ -47,7 +47,6 @@ const PostList = (props: Props) => {
   useEffect(() => {
     let limit = 12
     let offset = (page - 1) * 12
-    console.log(page)
     dispatch(loadPosts(limit, offset))
   }, [page, dispatch])
 
@@ -76,7 +75,6 @@ const PostList = (props: Props) => {
         {!(page - 1) && getHeaderPost()}
         <div className={styles.mainPosts}>
           {filteredPostsList.map((post, index) => {
-
             if (!(page - 1) && (index === 0 || index > 4)) {
               return null
             }

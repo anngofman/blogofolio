@@ -6,12 +6,10 @@
 		max-width: 100%;
 		
 		.mainPosts{
-		
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: max-content;
 			grid-auto-rows: max-content ;
-			// gap:2em;
 		}
 
 	}

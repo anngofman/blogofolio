@@ -3,13 +3,15 @@ import BookmarkIcon from '../../../../Icon/Bookmark'
 
 type Props = {
   title?: string
-  onClick: () => void
+  onClick?: () => void
   isFav?: boolean
 }
 
 const Bookmark = ({ title, onClick, isFav }: Props) => {
   const BookmarkOnClick = () => {
-    onClick()
+    if(onClick){
+      onClick() 
+    } 
   }
 
   return (
